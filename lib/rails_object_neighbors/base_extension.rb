@@ -3,32 +3,32 @@ require 'active_support/concern'
 module BaseExtension
   extend ActiveSupport::Concern
 
-  def last?
-    self == self.class.last
+  def last?(attribute = "id")
+    self == self.class.order("#{attribute} ASC").last
   end
 
-  def first?
-    self == self.class.first
+  def first?(attribute = "id")
+    self == self.class.order("#{attribute} ASC").first
   end
 
-  def next
-    self.class.where("id > #{self.id}").order(id: :asc).limit(1).first
+  def next(attribute = "id")
+    self.class.where("#{attribute} > #{self.send(attribute)}").order("#{attribute} ASC").limit(1).first
   end
 
-  def previous
-    self.class.where("id < #{self.id}").order(id: :desc).limit(1).first
+  def previous(attribute = "id")
+    self.class.where("#{attribute} < #{self.send(attribute)}").order("#{attribute} DESC").limit(1).first
   end
 
-  def all_after
-    self.class.where("id > #{self.id}")
+  def all_after(attribute = "id")
+    self.class.where("#{attribute} > #{self.send(attribute)}").order("#{attribute} ASC")
   end
 
-  def all_before
-    self.class.where("id < #{self.id}")
+  def all_before(attribute = "id")
+    self.class.where("#{attribute} < #{self.send(attribute)}").order("#{attribute} ASC")
   end
 
-  def all_without
-    self.class.where.not(id: self.id)
+  def all_without(attribute = "id")
+    self.class.where.not(id: self.id).order("#{attribute} ASC")
   end
 
   ActiveRecord::Base.send(:include, BaseExtension)
