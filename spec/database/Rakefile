@@ -1,0 +1,37 @@
+# coding: utf-8
+
+require_relative 'config'
+
+namespace :db do
+  desc "Удалить базу данных"
+  task :destroy do
+    FileUtils.rm "db/data.sqlite3"
+  end
+
+  desc "Создать схему базы данных."
+  task :schema do
+    ActiveRecord::Schema.define do
+      create_table :posts do |t|
+        t.column :title, :string
+        t.column :body, :text
+      end
+    end
+  end
+
+  desc "Заполнить базу"
+  task :seed do
+    10.times do |index|
+      Post.create!(
+        title: "post title #{index + 1}",
+        body: "post body #{index + 1}"
+        )
+    end
+  end
+
+  desc "Подготовить базу к тестированию"
+  task :prepare_for_test do
+    Rake::Task['db:destroy'].invoke
+    Rake::Task['db:schema'].invoke
+    Rake::Task['db:seed'].invoke
+  end
+end

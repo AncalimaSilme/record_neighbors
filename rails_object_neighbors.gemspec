@@ -16,7 +16,10 @@ Gem::Specification.new do |s|
   s.email       = ["ancalimasilme@gmail.com"]
   s.homepage = "https://rubygems.org/gems/rails_object_neighbors"
 
-  s.files = Dir["{lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{lib}/**/*", "Rakefile", "README.md", "CHANGE.log"]
+  s.test_files = Dir["spec/**/*"]
 
-  s.add_runtime_dependency 'rails', '>= 4.0.0'
+  s.add_runtime_dependency 'activerecord', '>= 0', '>= 4.0.0'
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rspec'
 end
