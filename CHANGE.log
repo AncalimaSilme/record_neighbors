@@ -1,0 +1,11 @@
+2014-11-29 Ancalima Silme <ancalimasilme@gmail.com>
+
+  * Переместил БД с тестовыми данными в RAM
+  * Добавил тесты
+
+2014-11-29 Ancalima Silme <ancalimasilme@gmail.com>
+
+  * Подключены модули ActiveRecord, SQLite3, RSpec для тестирования плагина
+  * Создала БД с тестовыми данными
+  * Написано несколько базовых тестов
+
