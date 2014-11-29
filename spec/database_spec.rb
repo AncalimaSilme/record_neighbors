@@ -1,12 +1,6 @@
 require_relative 'spec_helper.rb'
-require_relative 'database/config.rb'
+require_relative 'support/database_config.rb'
 require_relative '../lib/rails_object_neighbors/base_extension.rb'
-
-ActiveRecord::Base.establish_connection(
-  adapter: "sqlite3",
-  database: "spec/database/data.sqlite3"
-)
-ActiveRecord::Base.logger = nil
 
 
 RSpec.describe 'next()' do
