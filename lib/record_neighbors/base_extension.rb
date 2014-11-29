@@ -27,8 +27,8 @@ module BaseExtension
     self.class.where("#{attribute} < #{self.send(attribute)}").order("#{attribute} ASC")
   end
 
-  def all_without(attribute = "id")
-    self.class.where.not(id: self.id).order("#{attribute} ASC")
+  def all_without
+    self.class.where.not(id: self.id)
   end
 
   ActiveRecord::Base.send(:include, BaseExtension)

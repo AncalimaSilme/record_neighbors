@@ -1,20 +1,21 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "rails_object_neighbors/version"
+require "record_neighbors/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name               = "rails_object_neighbors"
-  s.version             = RailsObjectNeighbors::VERSION
-  s.summary          = "Neighbors of Object"
-  s.description       = "Make possible get neighbors for object your model"
   s.platform           = Gem::Platform::RUBY
-
+  s.name               = "record_neighbors"
+  s.summary          = "Neighbors of ActiveRecord object"
+  s.version             = RecordNeighbors::VERSION
+  s.description       = <<-EOF
+    En: Make possible get neighbors for ActiveRecord object.
+    Ru: Позволяет получить следующий/предыдущий объект. Определить первый/последний. А так же несколько других полезных методов.
+  EOF
 
   s.author     = "Ancalima Silme"
   s.email       = ["ancalimasilme@gmail.com"]
-  s.homepage = "https://rubygems.org/gems/rails_object_neighbors"
 
   s.files = Dir["{lib}/**/*", "Rakefile", "README.md", "CHANGE.log"]
   s.test_files = Dir["spec/**/*"]

@@ -1,4 +1,2 @@
 .bundle/
-log/*.log
-pkg/
-spec/database/*.sqlite3
+Gemfile.lock

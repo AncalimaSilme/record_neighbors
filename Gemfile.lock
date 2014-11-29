@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_object_neighbors (0.0.2)
+    record_neighbors (0.0.2)
       activerecord (>= 4.0.0, >= 0)
 
 GEM
@@ -47,6 +47,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rails_object_neighbors!
+  record_neighbors!
   rspec
   sqlite3

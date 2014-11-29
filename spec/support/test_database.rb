@@ -6,18 +6,15 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Post < ActiveRecord::Base
+  scope :on_position, -> { order(position: :asc) }
 end
 
 ActiveRecord::Schema.define do
   create_table :posts do |t|
-    t.column :title, :string
-    t.column :body, :text
+    t.column :position, :indeger
   end
 end
 
-10.times do |index|
-  Post.create!(
-    title: "post title #{index + 1}",
-    body: "post body #{index + 1}"
-    )
+[2, 3, 1, 10, 9, 6, 5, 7, 8, 4].each_with_index do |position, index|
+  Post.create!(position: position)
 end
